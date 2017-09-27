@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83DE516F1F7C289800954F97 /* dataDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE516E1F7C289700954F97 /* dataDictionary.swift */; };
 		A0856B011F709103008DF071 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0856B001F709103008DF071 /* AppDelegate.swift */; };
 		A0856B031F709103008DF071 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0856B021F709103008DF071 /* ViewController.swift */; };
 		A0856B061F709104008DF071 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0856B041F709104008DF071 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83DE516E1F7C289700954F97 /* dataDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataDictionary.swift; sourceTree = "<group>"; };
 		A0856AFD1F709103008DF071 /* EmailExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmailExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0856B001F709103008DF071 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0856B021F709103008DF071 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				A0856B071F709104008DF071 /* Assets.xcassets */,
 				A0856B091F709104008DF071 /* LaunchScreen.storyboard */,
 				A0856B0C1F709104008DF071 /* Info.plist */,
+				83DE516E1F7C289700954F97 /* dataDictionary.swift */,
 			);
 			path = EmailExample;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0856B031F709103008DF071 /* ViewController.swift in Sources */,
+				83DE516F1F7C289800954F97 /* dataDictionary.swift in Sources */,
 				A0856B191F7336BB008DF071 /* MenuTVC.swift in Sources */,
 				A0856B151F709548008DF071 /* RootTVC.swift in Sources */,
 				A0856B011F709103008DF071 /* AppDelegate.swift in Sources */,

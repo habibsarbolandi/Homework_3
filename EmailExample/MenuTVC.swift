@@ -10,12 +10,11 @@ import UIKit
 
 class MenuTVC: UITableViewController {
     
-    var dataDictionary: [String:Array<Email>] = [:]
     var selectedRow = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -45,7 +44,7 @@ class MenuTVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath)
 
         // Configure the cell...
-        let keywords = Array(dataDictionary.keys)
+        let keywords = Array(layer.dataDictionary.keys)
         cell.textLabel?.text = keywords[indexPath.row]
 
         return cell
@@ -57,8 +56,10 @@ class MenuTVC: UITableViewController {
         
         print("In didSelectRowAt")
         //TODO: get cell information
-        let keywords = Array(dataDictionary.keys)
+        let keywords = Array(layer.dataDictionary.keys)
         selectedRow = keywords[indexPath.row]
+        
+        
         
         //call segue manually
         performSegue(withIdentifier: "cellSelected", sender: self)
@@ -108,8 +109,10 @@ class MenuTVC: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let destVC = segue.destination as! RootTVC
-        destVC.emails = dataDictionary[selectedRow]!
+        destVC.emails = layer.dataDictionary[selectedRow]!
         destVC.num = selectedRow
+        destVC.dataDictionary1 = layer.dataDictionary
+
         
     }
     
