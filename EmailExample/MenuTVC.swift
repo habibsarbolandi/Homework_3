@@ -107,14 +107,10 @@ class MenuTVC: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
         let destVC = segue.destination as! RootTVC
         destVC.emails = dataDictionary[selectedRow]!
+        destVC.num = selectedRow
         
-        //1. which button got pressed
-        //2. up-to-date data
-        
-        print("In prepare")
     }
     
 

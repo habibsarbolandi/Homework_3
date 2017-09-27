@@ -16,15 +16,20 @@ class RootTVC: UITableViewController {
     
     var emails = [Email]()
     var delegate: CellSelectedDelegate?
+    var num: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if num == "Inbox" {
+            self.navigationItem.rightBarButtonItem = self.editButtonItem
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,7 +78,7 @@ class RootTVC: UITableViewController {
     }
     */
 
-    
+    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -82,8 +87,9 @@ class RootTVC: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
+    */
     
 
     /*
