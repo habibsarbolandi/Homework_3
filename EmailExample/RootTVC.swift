@@ -21,8 +21,15 @@ class RootTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let actionButton = UIBarButtonItem()
+        
         if num == "Inbox" {
             self.navigationItem.rightBarButtonItem = self.editButtonItem
+        }
+        
+        if num == "Sent" {
+            actionButton.title = "+"
+            self.navigationItem.rightBarButtonItem = actionButton
         }
         
         // Uncomment the following line to preserve selection between presentations
