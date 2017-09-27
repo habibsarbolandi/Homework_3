@@ -54,7 +54,7 @@ class MenuTVC: UITableViewController {
         //TODO: react to user selecting row
         //I want the detail view controller to update based on the row that I selected
         
-        print("In didSelectRowAt")
+        //print("In didSelectRowAt")
         //TODO: get cell information
         let keywords = Array(layer.dataDictionary.keys)
         selectedRow = keywords[indexPath.row]

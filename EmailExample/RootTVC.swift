@@ -18,23 +18,29 @@ class RootTVC: UITableViewController {
     var delegate: CellSelectedDelegate?
     var num: String = ""
     var dataDictionary1: [String:Array<Email>] = [:]
-    var deletedEmail = [Email]()
+    var addButton:UIBarButtonItem = UIBarButtonItem()
+    var subjectEmail: String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let actionbutton = UIBarButtonItem()
         
         if num == "Inbox" {
             self.navigationItem.rightBarButtonItem = self.editButtonItem
         }
         
         if num == "Sent" {
-            actionbutton.title = "+"
-            self.navigationItem.rightBarButtonItem = actionbutton
+            addButton.title = "+"
+            addButton.action = #selector(addButtonHit)
+            self.navigationItem.rightBarButtonItem = addButton
         }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
+    }
+    
+    func addButtonHit(_ button:UIBarButtonItem!){
+        print("Done clicked")
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +66,7 @@ class RootTVC: UITableViewController {
         
         let selectedEmail = emails[indexPath.row]
         delegate?.read(email: selectedEmail)
+        subjectEmail = selectedEmail.subject
     }
 
     
@@ -70,7 +77,6 @@ class RootTVC: UITableViewController {
         let currentEmail = emails[indexPath.row]
         cell.textLabel?.text = currentEmail.subject
         cell.detailTextLabel?.text = currentEmail.sender
-    
         return cell
     }
     
@@ -85,21 +91,18 @@ class RootTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == .delete {
                 // Delete the row from the data source
-                deletedEmail = [emails.remove(at: indexPath.row)]
+                let emailDeleted = emails[indexPath.row]
+                layer.dataDictionary["Inbox"]?.remove(at: indexPath.row)
+                layer.dataDictionary["Trash"]?.insert(emailDeleted, at: 1)
+                emails.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
-                dataDictionary1 = ["Inbox": [], "Sent":[Email(sender: "prof@asu.edu", subject: "Homework", contents: "Hi turn it in please")], "Trash":[Email(sender: "alert@asu.edu", subject: "Bees", contents: "Hi help me please there are bees"),Email(sender: "fellow.student@asu.edu", subject: "Project Question", contents: "Hi help me please")]]
-                layer.dataDictionary = dataDictionary1
+                
+                //dataDictionary1 = ["Inbox": [], "Sent":[Email(sender: "prof@asu.edu", subject: "Homework", contents: "Hi turn it in please")], "Trash":[Email(sender: "alert@asu.edu", subject: "Bees", contents: "Hi help me please there are bees"),Email(sender: "fellow.student@asu.edu", subject: "Project Question", contents: "Hi help me please")]]
+                //layer.dataDictionary = dataDictionary1
                 
             } else if editingStyle == .insert {
                 // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
             }
-        
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        let destVC = segue.destination as! MenuTVC
     }
     
     /*
